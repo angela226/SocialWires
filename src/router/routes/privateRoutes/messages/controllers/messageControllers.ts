@@ -12,12 +12,22 @@ const messagesController = {
 		
 	},
 	createMessage: async (req: Request, res: Response) => {
-		const { user_id, title, text, comments, reactions = '' } = req.body;
-		const messages = await pool.promise().query(
-			'INSERT INTO messages ( user_id, title, text, comments, reactions) VALUES (?, ?, ?, ?, ?)',
-			[ user_id, title, text, comments, reactions]
-		  );
-		res.send(messages)
+		const { user_id, title, text, comments = [], reactions = [] } = req.body;
+		const [result] = await pool.promise().query(
+			'INSERT INTO messages (user_id, title, text, comments, reactions) VALUES (?, ?, ?, ?, ?)',
+			[user_id, title, text, JSON.stringify(comments), JSON.stringify(reactions)]
+		);
+		const createdAt = new Date().toISOString();
+		const message = {
+			id: result.insertId,
+			user: user_id,
+			title,
+			text,
+			comments,
+			reactions,
+			createdAt
+		};
+		res.status(200).json(message);
 	},
 	getDataMessage: async (req: Request, res: Response) => {
 
