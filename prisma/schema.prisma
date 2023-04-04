@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id_user         Int       @id @default(autoincrement())
+  uuid_user       String    @unique
+  username        String
+  name            String    @default("")
+  lastname        String    @default("")
+  address         String    @default("")
+  phone           String    @default("")
+  email           String    @unique
+  email_verified  Boolean? @default(false)
+  status          String    @default("true")
+  remember_token  String    @default("")
+  password        String
+  id_photo_perfil Int?
+  id_role         Int       @default(1)
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
+
+  // Relación uno a muchos con la tabla Messages
+  messages        Messages[]
+}
+
+model Messages {
+  id           String   @id @default(uuid())
+  user         Users    @relation(fields: [user_id], references: [uuid_user])
+  user_id      String
+  title        String
+  text         String
+  comments     String
+  reactions    String
+  createdAt    DateTime @default(now())
+}
+
+model Reactions {
+  id         String   @id @default(uuid())
+  message    String
+  reaction   String
+  author     String
+  comments   String
+  reactions  String
+  createdAt  DateTime @default(now())
+}
