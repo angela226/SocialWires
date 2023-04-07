@@ -7,6 +7,18 @@ const usersController = {
 		console.log(users[0]);
 		res.status(200).json({ type: true, status: 200, data: users[0] });
 	},
+	createuser: async (req: Request, res: Response) => {
+        const {
+            firstname,
+            lastname,
+            username,
+            email,
+            password 
+        } =req.body;
+        console.log(firstname, lastname, username, email, password)
+        res.status(200)
+},
 	getDataUser: async (req: Request, res: Response) => {},
 };
 export { usersController };
+

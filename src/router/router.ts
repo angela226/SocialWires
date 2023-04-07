@@ -1,4 +1,3 @@
-import { messagesController } from "./routes/privateRoutes/messages/controllers/messageControllers";
 import usersRoutes from './routes/privateRoutes/users/usersRoutes';
 import messagesRoutes from './routes/privateRoutes/messages/messageRouter';
 

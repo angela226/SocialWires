@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
 import { pool } from '../../../../../database/database';
+import { request } from 'http';
 
-const messagesController = {
+
+const messagesControllers:any = {
 	getDataMessageById: async (req: Request, res: Response) => {
 		try{
 			const id_message = req.params.id
@@ -52,11 +54,26 @@ const messagesController = {
 	},
 	createComment: async (req: Request, res: Response) => {
 		const { id } = req.params
+		const { autor, texto } = req.body;
+
 		// hacer una consulta a la bd  con el id del request
 
-		// verificar que user_id diferente al bearer_token
+		
+		try {
+			const query = {
+			  text: 'INSERT INTO comentarios (autor, texto) VALUES ($1, $2) RETURNING *',
+			  values: [autor, texto],
+			};
+			const result = await pool.query(query);
+			const comment_user = result.rows[0];
+		
+
+
+
+			// verificar que user_id diferente al bearer_token
 
 		
+			
 		const { comment } = req.body
 
 		// hacemos un update al comentario en la base de datos y le agregamos el comentario
@@ -64,6 +81,6 @@ const messagesController = {
 		console.log('que comment', comment)
 		console.log('que id', id)
 		res.status(200).json({message: "todo ok!"})
-	},
-};
-export { messagesController };
+	} catch (err) {console.log(err)}
+}}
+export { messagesControllers };

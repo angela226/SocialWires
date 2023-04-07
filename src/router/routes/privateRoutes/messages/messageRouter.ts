@@ -1,12 +1,12 @@
-import { messagesController } from './controllers/messageControllers';
+import { messagesControllers } from './controllers/messageControllers';
 
 const Router = require('express').Router;
 
 const router = Router();
-router.get('/', messagesController.getDataMessages);
-router.get('/me/:id', messagesController.getDataMessageById);
-router.delete('/me/:id', messagesController.deleteMessage);
-router.get('/me', messagesController.getDataMyMessage);
-router.post('/createMessage', messagesController.createMessage);
-router.post('/comment/:id', messagesController.createComment);
+router.get('/', messagesControllers.getDataMessages);
+router.get('/me/:id', messagesControllers.getDataMessageById);
+router.delete('/me/:id', messagesControllers.deleteMessage);
+router.get('/me', messagesControllers.getDataMyMessage);
+router.post('/createMessage', messagesControllers.createMessage);
+router.post('/comment/:id', messagesControllers.createComment);
 export default router;
