@@ -1,4 +1,4 @@
-/* The entry point of the application. */
+/* The entry point of the application. */  
 require('dotenv').config(); //esto obtiene la variables de entorno
 import { NextFunction, Request, Response } from 'express';  // tipos typescript
 

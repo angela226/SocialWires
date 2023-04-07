@@ -8,5 +8,5 @@ router.get('/me/:id', messagesController.getDataMessageById);
 router.delete('/me/:id', messagesController.deleteMessage);
 router.get('/me', messagesController.getDataMyMessage);
 router.post('/createMessage', messagesController.createMessage);
-
+router.post('/comment/:id', messagesController.createComment);
 export default router;

@@ -50,5 +50,20 @@ const messagesController = {
 	getDataMessage: async (req: Request, res: Response) => {
 
 	},
+	createComment: async (req: Request, res: Response) => {
+		const { id } = req.params
+		// hacer una consulta a la bd  con el id del request
+
+		// verificar que user_id diferente al bearer_token
+
+		
+		const { comment } = req.body
+
+		// hacemos un update al comentario en la base de datos y le agregamos el comentario
+
+		console.log('que comment', comment)
+		console.log('que id', id)
+		res.status(200).json({message: "todo ok!"})
+	},
 };
 export { messagesController };
