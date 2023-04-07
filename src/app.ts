@@ -48,11 +48,9 @@ app.use(passport.initialize());
 //private routes
 app.get('/prove', middlewareDefault);
 app.post('/wires/api/v1/login',schemaValidationLogin ,validationReport,AuthController.login);
-// app.post('/wires/api/v1/login',schemaValidationLogin ,AuthController.login);
 app.post('/wires/api/v1/registerUser', passport.authenticate('register', { passReqToCallback: true }), middlewareDefault);
 app.use('/wires/api/v1', AuthController.verifyTokenBearer, router);
 app.post('/wires/api/v1/verifyToken', AuthController.verifyToken, middlewareDefault);
-app.use('/wires/api/v1', routerPublic);
 app.get('/*', (req: Request, res: Response) => {
 	res.sendFile(path.join(__dirname, './public/dist/index.html'));
 });

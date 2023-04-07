@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
-import homeRoutes from './routes/publicRoutes/home/homeRoutes';
+import { Request, Response } from 'express';  
+
 
 const { Router } = require('express');
 const routerPublic = Router();
 
-routerPublic.use('/home', homeRoutes);
+routerPublic.use('/home', ()=>{});
 
 export default routerPublic;

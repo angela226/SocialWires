@@ -2,14 +2,32 @@ import { Request, Response } from 'express';
 import { pool } from '../../../../../database/database';
 
 const messagesController = {
-	getDataMessages: async (req: Request, res: Response) => {
-		console.log('first')
-		const messages = await pool.promise().query('SELECT * FROM messages');
+	getDataMessageById: async (req: Request, res: Response) => {
+		try{
+			const id_message = req.params.id
+			const messages = await pool.query('SELECT * FROM messages WHERE id = ?',[id_message]);
+			res.send(messages)
+		}catch(err){
+			res.status(404)
+		}
+	},
+	getDataMyMessage: async (req: Request, res: Response) => {
+		try{
+			const id_user = req.headers.id_user
+			const messages = await pool.query('SELECT * FROM messages WHERE user_id = ?',[id_user]);
+			res.send(messages)
+		}catch(err){
+			res.status(404)
+		}
+	},
+	getDataMessages: async (req: Request, res: Response) => {		
+		const messages = await pool.query('SELECT * FROM messages');
 		res.status(200).json({ type: true, status: 200, data: messages[0] });
 	},
-	deleteMessage:async (req: Request, res: Response) => {
-		const messages = await pool.promise().query('SELECT * FROM messages');
-		
+	deleteMessage: async (req: Request, res: Response) => {		
+		const id_message = req.params.id;
+		const messages = await pool.query('DELETE FROM messages WHERE id = ?;',[id_message]);
+		res.status(200).json({ status: 200, delete:true });
 	},
 	createMessage: async (req: Request, res: Response) => {
 		const { user_id, title, text, comments = [], reactions = [] } = req.body;
