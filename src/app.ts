@@ -1,6 +1,6 @@
 /* The entry point of the application. */  
 require('dotenv').config(); //esto obtiene la variables de entorno
-import { NextFunction, Request, Response } from 'express';  // tipos typescript
+import { NextFunction, Request, Response } from 'express';
 
 import { policy } from './config/helmet'; // politicas para la seguridad, no permite injeccion de scripts
 import bodyParser from 'body-parser'; // para aceptar y usar json
@@ -11,7 +11,7 @@ import session from 'express-session'; // libreria para manejar sesiones
 import routerPublic from './router/publicRoutes'; // manejar rutas publicas
 import { schemaValidationLogin, schemaValidationRegister } from './utilities/schema/shemaValidator'; // validaciones para login y registro
 import { SocketManager } from './socket/socket'; 
-import { Server } from 'socket.io';
+//import { Server } from 'socket.io';
 import { middlewareDefault } from './utilities/helpers/helpers';
 import { configSession } from './config/sessionexpress';
 import { configSocket } from './config/socket';
@@ -27,11 +27,11 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const io = new Server(server, configSocket);
+//const io = new Server(server, configSocket);
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const socketManager = SocketManager.getInstance();
-socketManager.setIo(io);
+//socketManager.setIo(io);
 
 app.use(express.json());
 app.set('trust proxy', 1);
