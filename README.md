@@ -1,3 +1,8 @@
+# Instalacion de la app
+## 1. Primero debemos ejecutar el npm install
+
+Para ejecutar el npm install abrimos la consola de comandos y escribimos 
+
 # social wires 
 
 - prerequistos
