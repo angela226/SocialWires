@@ -1,18 +1,17 @@
-# Instalacion de la app
-## 1. Primero debemos ejecutar el npm install
+### Social Wires Backend
 
-Para ejecutar el npm install abrimos la consola de comandos y escribimos 
+### Instalacion de la app
+#
+para usarlo hay que empezar instalando todas las dependencias
+npm i
 
-# social wires 
+# Empezar el proyecto
+- npm start 
 
-- prerequistos
+# Rutas
 
-git status -> ver cambios del proyecto
+# Login
 
-git add . -> agregar todos los cambios
+# DB
 
-git commit -m "comment commit " agregar commit
-
-git push origin master -> subir los cambios al repositorio
-
-git pull origin master -> traer los cambios del repositorio
+DATABASE_URL=mysql://user:password@localhost/mydatabase

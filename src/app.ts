@@ -46,6 +46,7 @@ app.disable('x-powered-by');
 app.use(passport.initialize());
 
 //private routes
+app.get('/logout', AuthController.logout);
 app.get('/prove', middlewareDefault);
 app.post('/wires/api/v1/login',schemaValidationLogin ,validationReport,AuthController.login);
 app.post('/wires/api/v1/registerUser', passport.authenticate('register', { passReqToCallback: true }), middlewareDefault);

@@ -7,4 +7,6 @@ router.post('/getDataUsers', usersController.getDataUsers);
 router.post('/getDataUser', usersController.getDataUser);
 router.post('/user', usersController.createuser);
 
+
+
 export default router;

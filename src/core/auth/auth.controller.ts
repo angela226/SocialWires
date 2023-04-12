@@ -40,6 +40,11 @@ export const AuthController = {
 		// if (!errors.isEmpty()) {
 		// }
 	},
+	logout: async (req: Request, res: Response) => {
+		if (req.session) {
+			req.session.destroy(err => err);
+		}
+	},
 	register: async (req: Request, res: Response) => {},
 	verifyToken: async (req: Request, res: Response, next: NextFunction) => {
 		if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
