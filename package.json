@@ -31,7 +31,7 @@
 	"scripts": {
 		"tsc": "tsc",
 		"test": "jest",
-		"build": "tsc --project tsconfig.json --allowJs",
+		"build": "tsc --pretty",
 		"dev": "nodemon ./src/app.ts",
 		"prove": "nodemon ./prove/index.ts",
 		"database": "node src/database/db.js",

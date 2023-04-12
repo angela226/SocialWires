@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:18
 LABEL maintainer "angelamariag074@gmail.com"
 
 WORKDIR /app
@@ -10,7 +10,6 @@ RUN touch .env
 RUN yarn
 
 COPY . .
-ENV NODE_ENV production
 RUN npm run build
 
-CMD [ "node", "src/app.ts" ]
+CMD [ "node", "build/app.js" ]
