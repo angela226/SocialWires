@@ -47,6 +47,11 @@ Se puso funcionalidad para que al registrar un usuario revisa una foto o un gif 
 Metodo para registrar el usuario (POST request)
 
 
+## Docker
+**Aquí se descargan los contenedores**
+`docker pull angelamariag/socialwiresbackend-app:latest`
+
+
 
 ## Login 
 
@@ -63,6 +68,7 @@ password": Pep123456.
 - Puerto para el Docker 5000 
 - En la raiz del proyecto esta el archivo de configuración de Docker. 
 (docker-compose.yml)
+
 
 
 ## .env 
