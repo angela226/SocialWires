@@ -126,4 +126,8 @@ Estrategia en el Express.js
 Es una dependencia que permite utilizar la estrategia de autenticación local de Passport en un proyecto de Node.js.
 
 - `@prisma/client": "^4.7.1"`\
+<<<<<<< HEAD
 Permite interactuar con una base de datos de manera fácil y segura utilizando el ORM de bases de datos Prisma en un proyecto de Node.js.
+=======
+Permite interactuar con una base de datos de manera fácil y segura utilizando el ORM de bases de datos Prisma en un proyecto de Node.js.
+>>>>>>> 47bb86553d31f1e0f61d444f04c4dbd2ae495428
