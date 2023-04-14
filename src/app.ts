@@ -16,6 +16,7 @@ import { middlewareDefault } from './utilities/helpers/helpers';
 import { configSession } from './config/sessionexpress';
 import { configSocket } from './config/socket';
 import { validationRegister, validationReport } from './core/middlewares/validations';
+import { usersController } from './router/routes/privateRoutes/users/controllers/usersControllers';
 
 let passportStrategy = new passportUtilities();
 
@@ -29,7 +30,7 @@ const http = require('http');
 const server = http.createServer(app);
 //const io = new Server(server, configSocket);
 const cors = require('cors');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000
 const socketManager = SocketManager.getInstance();
 //socketManager.setIo(io);
 
@@ -46,7 +47,7 @@ app.disable('x-powered-by');
 app.use(passport.initialize());
 
 //private routes
-app.get('/logout', AuthController.logout);
+app.get('/login', AuthController.login);
 app.get('/prove', middlewareDefault);
 app.post('/wires/api/v1/login',schemaValidationLogin ,validationReport,AuthController.login);
 app.post('/wires/api/v1/registerUser', passport.authenticate('register', { passReqToCallback: true }), middlewareDefault);

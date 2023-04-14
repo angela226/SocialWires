@@ -16,7 +16,7 @@ const usersController = {
             password 
         } =req.body;
         console.log(firstname, lastname, username, email, password)
-        res.status(200)
+        res.status(200).json({ type: true, status: 200});
 },
 	getDataUser: async (req: Request, res: Response) => {},
 };
