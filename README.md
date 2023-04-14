@@ -46,6 +46,9 @@ Se puso funcionalidad para que al registrar un usuario revisa una foto o un gif 
 - **RegistrarUsuario** ->  `/wires/api/v1/users/user `
 Metodo para registrar el usuario (POST request)
 
+## Docker
+**Aquí se descargan los contenedores**
+`docker pull angelamariag/socialwiresbackend-app:latest`
 
 
 ## Login 
